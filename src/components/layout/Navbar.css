@@ -64,6 +64,17 @@
   transform: translateY(-2px);
 }
 
+.nav-link.active {
+  background-color: #5bbfa0;
+  color: white;
+}
+
+.nav-link.active:hover {
+  background-color: #5bbfa0;
+  color: white;
+  transform: none;
+}
+
 /* ── Hamburger — hidden on desktop ── */
 .nav-toggler {
   display: none;

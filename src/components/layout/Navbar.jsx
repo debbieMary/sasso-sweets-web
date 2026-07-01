@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import sassoLogo from '../../assets/sassoLogoNegro.png'
 import './Navbar.css'
 
@@ -26,10 +26,10 @@ function Navbar() {
         </button>
 
         <div className={`nav-links ${open ? 'open' : ''}`}>
-          <Link to="/"        className="nav-link" onClick={() => setOpen(false)}>Inicio</Link>
-          <Link to="/catalogo" className="nav-link" onClick={() => setOpen(false)}>Catálogo</Link>
-          <Link to="/about"   className="nav-link" onClick={() => setOpen(false)}>Nosotros</Link>
-          <Link to="/contact" className="nav-link" onClick={() => setOpen(false)}>Contacto</Link>
+          <NavLink to="/"        end className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} onClick={() => setOpen(false)}>Inicio</NavLink>
+          <NavLink to="/catalogo" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} onClick={() => setOpen(false)}>Catálogo</NavLink>
+          <NavLink to="/about"   className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} onClick={() => setOpen(false)}>Nosotros</NavLink>
+          <NavLink to="/contact" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} onClick={() => setOpen(false)}>Contacto</NavLink>
         </div>
       </div>
     </nav>
