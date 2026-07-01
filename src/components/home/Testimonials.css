@@ -1,0 +1,195 @@
+.testimonials-section {
+  padding: 5rem 2rem 4rem;
+  background: linear-gradient(to bottom, #FFFDE7 0%, #D6EFFF 100%);
+  position: relative;
+  text-align: center;
+  overflow: visible;
+}
+
+/* ── Nubes ── */
+.ts-cloud {
+  position: absolute;
+  pointer-events: none;
+  height: auto;
+  z-index: 1;
+}
+.ts-cloud-tl { top: 0; left: -3%; width: 34%; opacity: 0.8; transform: scaleX(-1); animation: ts-drift-l 22s ease-in-out infinite; }
+.ts-cloud-tr { top: 0; right: -3%; width: 32%; opacity: 0.75; animation: ts-drift-r 26s ease-in-out infinite; }
+.ts-cloud-bl { bottom: 0; left: -2%; width: 36%; opacity: 0.8; transform: scaleX(-1); animation: ts-drift-l 30s ease-in-out infinite; }
+.ts-cloud-br { bottom: 0; right: -2%; width: 34%; opacity: 0.75; animation: ts-drift-r 24s ease-in-out infinite; }
+
+@keyframes ts-drift-l {
+  0%, 100% { transform: translateX(0) scaleX(-1); }
+  50%       { transform: translateX(14px) scaleX(-1); }
+}
+@keyframes ts-drift-r {
+  0%, 100% { transform: translateX(0); }
+  50%       { transform: translateX(-14px); }
+}
+
+/* ── Cabecera ── */
+.testimonials-section .section-title {
+  font-family: 'Lilita One', cursive;
+  font-weight: 400;
+  font-size: 3.5rem;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.testimonials-section .section-subtitle {
+  font-size: 1.4rem;
+  color: #636e72;
+  margin-bottom: 3rem;
+}
+
+/* ── Slider ── */
+.ts-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.ts-track {
+  flex: 1;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.ts-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+/* ── Card ── */
+.testimonial-card {
+  background: white;
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  position: relative;
+}
+
+.quote-icon {
+  position: absolute;
+  top: -8px;
+  left: 18px;
+  font-size: 5rem;
+  color: #FFFDE7;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e07898, #9b7fdb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: white;
+  box-shadow: 0 4px 16px rgba(224, 120, 152, 0.3);
+}
+
+.stars {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.star {
+  font-size: 1.1rem;
+  color: #ffd700;
+}
+
+.testimonial-text {
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  font-style: italic;
+  margin: 0.4rem 0 0;
+}
+
+.testimonial-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+/* ── Flechas ── */
+.ts-arrow {
+  background: white;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #5bbfa0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.ts-arrow:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* ── Dots ── */
+.ts-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.75rem;
+}
+
+.ts-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #1f2937;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ts-dot.active {
+  background: #1f2937;
+  border-color: #1f2937;
+  transform: scale(1.2);
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .ts-pair {
+    grid-template-columns: 1fr;
+  }
+
+  .ts-pair .testimonial-card:nth-child(2) {
+    display: none;
+  }
+
+  .ts-slider { gap: 0.75rem; }
+  .ts-track { min-height: 260px; }
+  .testimonial-card { padding: 2rem 1.5rem; }
+  .ts-arrow { width: 36px; height: 36px; font-size: 0.85rem; }
+}

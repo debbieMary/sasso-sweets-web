@@ -1,0 +1,250 @@
+/* ── Página ── */
+.options-page { min-height:100vh; background:#f5f3ff; padding-bottom:6rem; }
+
+.options-hero {
+  background: linear-gradient(135deg,#7c3aed,#a855f7);
+  padding:4rem 2rem 3rem; text-align:center; margin-bottom:3rem;
+}
+.options-title { font-size:2.2rem; font-weight:900; color:white; margin:0 0 0.5rem; }
+.options-subtitle { font-size:1rem; color:rgba(255,255,255,.85); margin:0; }
+
+.opt-section { max-width:960px; margin:0 auto 3.5rem; padding:0 1.5rem; }
+
+.opt-label-row { display:flex; align-items:center; gap:.75rem; margin-bottom:1.25rem; }
+.opt-num {
+  width:36px; height:36px; border-radius:50%; background:#7c3aed;
+  color:white; font-weight:800; font-size:.9rem;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.opt-name { font-size:1.15rem; font-weight:700; color:#1f2937; }
+
+.opt-preview {
+  background:white; border-radius:20px; padding:2rem;
+  box-shadow:0 4px 20px rgba(0,0,0,.07); overflow:hidden;
+}
+
+/* ── Botón compartido ── */
+.op-btn {
+  border:none; color:white; font-size:.82rem; font-weight:700;
+  padding:.5rem 1.3rem; border-radius:999px; cursor:pointer;
+  transition:opacity .2s; margin-top:.75rem; display:inline-block;
+}
+.op-btn:hover { opacity:.85; }
+.op-btn-white { background:rgba(255,255,255,.25)!important; border:1.5px solid rgba(255,255,255,.6); }
+
+/* ── Fábrica tamaños ── */
+.op-fab    { display:block; width:auto; height:100%; max-width:58%; position:absolute; z-index:1; filter:drop-shadow(0 10px 24px rgba(124,58,237,.15)); }
+.op-fab-sm { display:block; max-width:46%; max-height:260px; margin:0 auto; filter:drop-shadow(0 8px 20px rgba(124,58,237,.15)); }
+.op-fab-md { display:block; max-width:36%; max-height:340px; flex-shrink:0; filter:drop-shadow(0 8px 20px rgba(124,58,237,.15)); }
+.op-fab-half { display:block; max-width:44%; max-height:340px; flex-shrink:0; filter:drop-shadow(0 8px 20px rgba(124,58,237,.15)); }
+.op-fab-conn { display:block; max-width:100%; max-height:220px; filter:drop-shadow(0 8px 20px rgba(124,58,237,.15)); }
+
+/* ── Escena para hotspots ── */
+.op-scene {
+  position:relative; width:100%; height:380px;
+  display:flex; align-items:center; justify-content:center; overflow:visible;
+}
+.op-hotspot { position:absolute; transform:translate(-50%,-50%); z-index:10; }
+
+.op-hs-btn {
+  position:relative; width:44px; height:44px; border-radius:50%;
+  background:rgba(255,255,255,.95); border:2px solid; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.3rem; font-weight:300; box-shadow:0 4px 14px rgba(0,0,0,.14);
+}
+.op-hs-btn.active .op-hs-ring { opacity:0; }
+.op-hs-ring {
+  position:absolute; inset:-8px; border-radius:50%; border:2px solid;
+  animation:hs-pulse 2s ease-in-out infinite;
+}
+@keyframes hs-pulse {
+  0%,100% { transform:scale(1); opacity:.5; }
+  50%      { transform:scale(1.3); opacity:.1; }
+}
+
+/* ── Popcard (hotspot popup) ── */
+.op-popcard {
+  position:absolute; top:54px; width:250px; border-radius:18px;
+  overflow:hidden; box-shadow:0 10px 32px rgba(0,0,0,.14); z-index:30;
+}
+.pop-right { left:0; }
+.pop-left  { right:0; }
+
+.op-popcard-head {
+  position:relative; padding:1.4rem 1.25rem 1.1rem;
+  display:flex; flex-direction:column; align-items:center; gap:.3rem; overflow:hidden;
+}
+.op-popcard-icon {
+  width:64px; height:64px; border-radius:50%;
+  background:rgba(255,255,255,.27); border:2px solid rgba(255,255,255,.4);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.8rem; color:white; position:relative; z-index:1; margin-bottom:.4rem;
+}
+.op-popcard-head h3 { color:white; font-size:1.2rem; font-weight:800; margin:0; position:relative; z-index:1; }
+.op-popcard-head p  { color:rgba(255,255,255,.88); font-size:.8rem; font-style:italic; margin:0; position:relative; z-index:1; }
+.op-popcard-body { background:white; padding:1rem 1.25rem 1.25rem; }
+.op-popcard-body p { font-size:.79rem; color:#4b5563; line-height:1.65; margin:0; }
+
+/* ── Stack (fábrica arriba + algo abajo) ── */
+.op-stack { display:flex; flex-direction:column; gap:1.5rem; align-items:center; }
+
+/* ── Cards en fila ── */
+.op-cards-row { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; width:100%; }
+
+.op-card-full {
+  position:relative; width:200px; border-radius:22px;
+  background:var(--c); overflow:hidden; padding:1.75rem 1.25rem 1.5rem;
+  display:flex; flex-direction:column; align-items:center;
+  box-shadow:0 6px 22px rgba(0,0,0,.12);
+}
+.op-card-icon {
+  width:72px; height:72px; border-radius:50%;
+  background:rgba(255,255,255,.27); border:2px solid rgba(255,255,255,.4);
+  display:flex; align-items:center; justify-content:center;
+  font-size:2rem; color:white; position:relative; z-index:1; margin-bottom:.9rem;
+}
+.op-card-full h3 { color:white; font-size:1.2rem; font-weight:800; margin:0 0 .25rem; text-align:center; position:relative; z-index:1; }
+.op-card-tagline { font-size:.78rem; font-style:italic; color:rgba(255,255,255,.88); margin:0; text-align:center; position:relative; z-index:1; }
+.op-card-divider { width:50%; height:1px; background:rgba(255,255,255,.4); margin:.9rem 0; position:relative; z-index:1; }
+.op-card-desc { font-size:.76rem; color:rgba(255,255,255,.92); line-height:1.6; margin:0; text-align:center; position:relative; z-index:1; }
+
+/* ── Sides (centro + lados) ── */
+.op-sides { display:flex; align-items:center; justify-content:center; gap:1rem; }
+.op-sides-left,.op-sides-right { display:flex; flex-direction:column; gap:.75rem; flex:1; max-width:200px; }
+
+.op-side-card {
+  position:relative; border-radius:18px; background:var(--c); overflow:hidden;
+  padding:1.25rem 1rem; display:flex; flex-direction:column; align-items:center; gap:.4rem;
+  box-shadow:0 5px 16px rgba(0,0,0,.11); cursor:pointer;
+}
+.op-side-card h3 { color:white; font-size:1rem; font-weight:800; margin:0; position:relative; z-index:1; text-align:center; }
+
+/* ── Tabs ── */
+.op-tabs { display:flex; gap:.5rem; flex-wrap:wrap; }
+.op-tab {
+  display:flex; align-items:center; gap:.35rem;
+  padding:.5rem 1rem; border-radius:10px 10px 0 0;
+  border:2px solid; border-bottom:none; background:white;
+  font-size:.84rem; font-weight:700; cursor:pointer; transition:all .2s;
+}
+.op-tab-panel {
+  background:white; border:2px solid #f0f0f0; border-radius:0 14px 14px 14px;
+  padding:1.5rem; display:flex; gap:1rem; align-items:flex-start; width:100%;
+}
+.op-panel-icon {
+  width:48px; height:48px; border-radius:50%; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.4rem; color:white;
+}
+.op-tab-panel h3 { font-size:1.25rem; font-weight:800; margin:0 0 .2rem; }
+
+/* ── Connector ── */
+.op-connector { display:flex; gap:.75rem; align-items:flex-start; justify-content:center; }
+.op-conn-left,.op-conn-right { flex:1; max-width:210px; }
+.op-conn-center { display:flex; flex-direction:column; align-items:center; gap:.75rem; flex:1; max-width:240px; }
+
+.op-conn-card {
+  position:relative; border-radius:18px; background:var(--c); overflow:hidden;
+  padding:1.25rem 1rem; display:flex; flex-direction:column; align-items:center;
+  box-shadow:0 5px 16px rgba(0,0,0,.11); cursor:pointer; width:100%;
+}
+.op-conn-card h3 { color:white; font-size:1rem; font-weight:800; margin:0; position:relative; z-index:1; text-align:center; }
+
+/* ── Split (fab izq + algo der) ── */
+.op-split { display:flex; gap:1.5rem; align-items:center; }
+
+/* ── Acordeón ── */
+.op-acc-wrap { flex:1; display:flex; flex-direction:column; gap:.5rem; }
+.op-acc-item { border-radius:14px; overflow:hidden; box-shadow:0 3px 10px rgba(0,0,0,.08); cursor:pointer; }
+.op-acc-head {
+  position:relative; display:flex; align-items:center; justify-content:space-between;
+  padding:.9rem 1.1rem; overflow:hidden;
+}
+.op-acc-left { display:flex; align-items:center; gap:.6rem; position:relative; z-index:1; }
+.op-acc-icon {
+  width:34px; height:34px; border-radius:50%;
+  background:rgba(255,255,255,.28); display:flex; align-items:center; justify-content:center;
+  color:white; font-size:1rem;
+}
+.op-acc-name { font-weight:800; font-size:.95rem; color:white; }
+.op-acc-arrow { color:rgba(255,255,255,.85); font-size:.7rem; position:relative; z-index:1; }
+.op-acc-body { padding:1rem 1.2rem; background:white; overflow:hidden; }
+
+/* ── Flip 3D ── */
+.op-flip-scene { perspective:800px; width:190px; height:240px; cursor:pointer; flex-shrink:0; }
+.op-flip-card { width:100%; height:100%; transform-style:preserve-3d; transition:transform .5s; position:relative; }
+.op-flip-scene.flipped .op-flip-card { transform:rotateY(180deg); }
+.op-flip-front,.op-flip-back {
+  position:absolute; inset:0; border-radius:18px; overflow:hidden;
+  backface-visibility:hidden; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; padding:1.25rem; gap:.4rem;
+}
+.op-flip-back { transform:rotateY(180deg); }
+.op-flip-hint { font-size:.68rem; color:rgba(255,255,255,.65); position:relative; z-index:1; }
+.op-flip-desc { font-size:.77rem; color:rgba(255,255,255,.95); line-height:1.6; text-align:center; position:relative; z-index:1; }
+.op-flip-front h3,.op-flip-front p { position:relative; z-index:1; color:white; text-align:center; margin:0; }
+.op-flip-front h3 { font-size:1.1rem; font-weight:800; }
+.op-flip-front p  { font-size:.78rem; font-style:italic; opacity:.88; }
+
+/* ── Ribbons ── */
+.op-ribbons { display:flex; flex-direction:column; gap:.5rem; width:100%; }
+.op-ribbon { border-radius:14px; overflow:hidden; box-shadow:0 3px 10px rgba(0,0,0,.08); cursor:pointer; }
+.op-ribbon-head {
+  position:relative; display:flex; align-items:center; justify-content:space-between;
+  padding:1rem 1.3rem; overflow:hidden;
+}
+.op-ribbon-left { display:flex; align-items:center; gap:.85rem; position:relative; z-index:1; }
+.op-ribbon-icon {
+  width:38px; height:38px; border-radius:50%;
+  background:rgba(255,255,255,.28); display:flex; align-items:center; justify-content:center;
+  font-size:1.1rem; color:white; flex-shrink:0;
+}
+.op-ribbon-name { display:block; font-weight:800; font-size:.95rem; color:white; }
+.op-ribbon-tagline { display:block; font-size:.74rem; color:rgba(255,255,255,.85); font-style:italic; }
+.op-ribbon-toggle { font-size:1.3rem; font-weight:300; color:rgba(255,255,255,.85); position:relative; z-index:1; }
+.op-ribbon-body { background:white; padding:1rem 1.4rem; overflow:hidden; }
+.op-ribbon-body p { font-size:.8rem; color:#4b5563; line-height:1.65; margin:0; }
+
+/* ── Modal overlay ── */
+.op-zone-btn {
+  position:absolute; width:44px; height:44px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.3rem; color:white; cursor:pointer; z-index:10;
+  box-shadow:0 4px 14px rgba(0,0,0,.18);
+  transform:translate(-50%,-50%);
+}
+.op-modal-overlay {
+  position:fixed; inset:0; background:rgba(0,0,0,.45); backdrop-filter:blur(4px);
+  display:flex; align-items:center; justify-content:center; z-index:9999;
+}
+.op-modal { width:300px; border-radius:22px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,.25); }
+.op-modal-head {
+  position:relative; padding:2rem 1.75rem 1.5rem;
+  display:flex; flex-direction:column; align-items:center; gap:.4rem; overflow:hidden;
+}
+.op-modal-icon {
+  width:68px; height:68px; border-radius:50%;
+  background:rgba(255,255,255,.27); border:2px solid rgba(255,255,255,.4);
+  display:flex; align-items:center; justify-content:center;
+  font-size:2rem; color:white; position:relative; z-index:1; margin-bottom:.4rem;
+}
+.op-modal-head h3 { color:white; font-size:1.4rem; font-weight:800; margin:0; position:relative; z-index:1; }
+.op-modal-head p  { color:rgba(255,255,255,.88); font-size:.85rem; font-style:italic; margin:0; position:relative; z-index:1; }
+.op-modal-body { background:white; padding:1.4rem 1.75rem; }
+.op-modal-body p { font-size:.82rem; color:#374151; line-height:1.65; margin:0; }
+
+/* ── Carousel ── */
+.op-carousel { flex:1; display:flex; flex-direction:column; align-items:center; gap:1rem; }
+.op-car-card {
+  position:relative; width:100%; max-width:280px; border-radius:22px;
+  background:var(--c); overflow:hidden; padding:2rem 1.5rem 1.75rem;
+  display:flex; flex-direction:column; align-items:center;
+  box-shadow:0 8px 26px rgba(0,0,0,.13);
+}
+.op-car-card h3 { color:white; font-size:1.25rem; font-weight:800; margin:0 0 .25rem; text-align:center; position:relative; z-index:1; }
+.op-car-dots { display:flex; gap:.5rem; }
+.op-dot {
+  width:10px; height:10px; border-radius:50%; border:2px solid #d1d5db;
+  background:transparent; cursor:pointer; transition:all .2s;
+}
+.op-dot.active { border-color:transparent; }

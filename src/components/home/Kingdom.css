@@ -1,0 +1,104 @@
+.kingdom-section {
+  height: 400vh;
+  position: relative;
+  background: linear-gradient(to bottom, transparent 85%, #FFD6E0 100%);
+}
+
+.kingdom-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* NUBES */
+.k-cloud     { position: absolute; pointer-events: none; height: auto; }
+.k-far-l     { top: 0;   left: 0;  width: 55%; transform: scaleX(-1);             opacity: 0.45; }
+.k-far-r     { top: 0;   right: 0; width: 50%;                                     opacity: 0.4;  }
+.k-mid-l     { top: 28%; left: 0;  width: 58%; transform: scaleX(-1) scaleY(.85); opacity: 0.6;  }
+.k-mid-r     { top: 33%; right: 0; width: 55%; transform: scaleY(.85);             opacity: 0.55; }
+.k-near-l    { bottom: 4%;  left: 0;  width: 62%; transform: scaleX(-1);           opacity: 0.8;  }
+.k-near-r    { bottom: 7%;  right: 0; width: 58%;                                  opacity: 0.75; }
+.k-near-bot  { bottom: 0;   left: 0;  width: 100%;                                 opacity: 0.9;  }
+
+/* TEXTO */
+.kingdom-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 900px;
+  width: 100%;
+  padding: 0 2.5rem;
+  box-sizing: border-box;
+}
+
+.kingdom-title {
+  font-family: 'Lilita One', cursive;
+  font-size: clamp(1.6rem, 4.5vw, 4.8rem);
+  font-weight: 400;
+  color: #7c3aed;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  margin: 0 0 1.5rem;
+}
+
+/* Wrapper exterior — puede partir entre palabras */
+.k-word-wrap {
+  display: inline;
+}
+
+/* Palabra interior — nunca se parte */
+.k-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.title-letter {
+  display: inline-block;
+}
+
+/* Espacio visible entre palabras, fuera del k-word */
+.letter-space {
+  display: inline-block;
+  width: 0.3em;
+}
+
+.kingdom-subtitle {
+  font-size: clamp(0.95rem, 1.6vw, 1.5rem);
+  font-weight: 400;
+  font-style: italic;
+  color: #1a1a1a;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 768px) {
+  .k-mid-l, .k-mid-r { display: none; }
+
+  .kingdom-content {
+    padding: 0 1.5rem;
+  }
+
+  .kingdom-title {
+    font-size: clamp(1.3rem, 6.5vw, 2rem);
+    letter-spacing: 0.01em;
+    line-height: 1.3;
+  }
+
+  .letter-space {
+    width: 0.22em;
+  }
+
+  .kingdom-subtitle {
+    font-size: clamp(0.85rem, 3.5vw, 1.1rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .kingdom-title {
+    font-size: clamp(1.1rem, 7vw, 1.6rem);
+  }
+}

@@ -1,0 +1,377 @@
+/* ── Sección ── */
+.collections-section {
+  position: relative;
+  padding: 0 0 4rem;
+  overflow: visible;
+  margin-top: -20vh;
+  /* Indigo muy claro, casi imperceptible al inicio */
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #FFD6E0     22%,
+    #D4EEEE     100%
+  );
+}
+
+/* ── Nubes ── */
+.col-cloud {
+  position: absolute;
+  pointer-events: none;
+  height: auto;
+  z-index: 1;
+}
+
+.col-cloud-tl {
+  top: 0;
+  left: -3%;
+  width: 30%;
+  opacity: 0.55;
+  transform: scaleX(-1);
+  animation: col-drift-l 22s ease-in-out infinite;
+}
+
+.col-cloud-tr {
+  top: 0;
+  right: -3%;
+  width: 28%;
+  opacity: 0.5;
+  animation: col-drift-r 26s ease-in-out infinite;
+}
+
+.col-cloud-bl {
+  bottom: 5%;
+  left: -2%;
+  width: 30%;
+  opacity: 0.4;
+  transform: scaleX(-1);
+  animation: col-drift-l 30s ease-in-out infinite;
+}
+
+.col-cloud-br {
+  bottom: 5%;
+  right: -2%;
+  width: 27%;
+  opacity: 0.38;
+  animation: col-drift-r 24s ease-in-out infinite;
+}
+
+@keyframes col-drift-l {
+  0%, 100% { transform: translateX(0)    scaleX(-1); }
+  50%       { transform: translateX(16px) scaleX(-1); }
+}
+
+@keyframes col-drift-r {
+  0%, 100% { transform: translateX(0); }
+  50%       { transform: translateX(-16px); }
+}
+
+/* ── Escena fabriquita ── */
+.collections-scene {
+  position: relative;
+  width: 100%;
+  height: 680px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.scene-fabriquita {
+  display: block;
+  height: 96%;
+  width: auto;
+  max-width: 60%;
+  z-index: 2;
+  filter: drop-shadow(0 16px 32px rgba(124, 58, 237, 0.18));
+}
+
+/* ── Hotspot ── */
+.hotspot-wrap {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.hotspot-btn {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+}
+
+.hotspot-ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid;
+  animation: ring-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes ring-pulse {
+  0%, 100% { transform: scale(1);    opacity: 0.5; }
+  50%       { transform: scale(1.3); opacity: 0.1; }
+}
+
+.hotspot-btn.is-active .hotspot-ring { animation: none; opacity: 0; }
+
+.hotspot-plus {
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1;
+  user-select: none;
+}
+
+/* ── Card popover (contenedor flip) ── */
+.col-card {
+  position: absolute;
+  top: 62px;
+  width: 260px;
+  height: 310px;
+  border-radius: 22px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  z-index: 30;
+  perspective: 800px;
+  cursor: pointer;
+}
+
+.pop-right { left: 0; }
+.pop-left  { right: 0; }
+
+/* Tarjeta que rota */
+.col-flip-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+  border-radius: 22px;
+}
+
+.col-flip-card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+/* Caras compartidas */
+.col-flip-front,
+.col-flip-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.4rem 1.2rem;
+  gap: 0.4rem;
+}
+
+.col-flip-back {
+  transform: rotateY(180deg);
+  justify-content: center;
+  padding: 1.2rem 1.1rem;
+  gap: 0;
+  overflow: hidden;
+}
+
+/* Rayas diagonales */
+.col-card-stripes {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.13) 0px,
+    rgba(255, 255, 255, 0.13) 2px,
+    transparent               2px,
+    transparent               15px
+  );
+  pointer-events: none;
+}
+
+/* Icono circular */
+.col-card-icon-wrap {
+  position: relative;
+  z-index: 1;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.27);
+  border: 2px solid rgba(255, 255, 255, 0.42);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.col-card-icon {
+  font-size: 2rem;
+  color: white;
+}
+
+.col-card-name {
+  position: relative;
+  z-index: 1;
+  font-family: 'Lilita One', cursive;
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: white;
+  margin: 0;
+  text-align: center;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.col-card-tagline {
+  position: relative;
+  z-index: 1;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+  text-align: center;
+}
+
+.col-flip-hint {
+  position: relative;
+  z-index: 1;
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.5rem;
+}
+
+.col-flip-desc {
+  position: relative;
+  z-index: 1;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.5;
+  text-align: center;
+  margin: 0 0 0.35rem;
+}
+
+.col-card-btn {
+  position: relative;
+  z-index: 5;
+  display: inline-block;
+  margin-top: 0.75rem;
+  border: none;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.5rem 1.3rem;
+  border-radius: 999px;
+  cursor: pointer;
+  text-decoration: none;
+  pointer-events: auto;
+  transition: opacity 0.2s;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+}
+.col-card-btn:visited { color: white; }
+.col-card-btn:hover { opacity: 0.85; }
+
+/* ── Acordeon mobile (oculto en desktop) ── */
+.col-mobile-accordion {
+  display: none;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .collections-scene { display: none; }
+
+  .col-mobile-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 2rem 1.25rem 3rem;
+  }
+
+  .col-mob-fabriquita {
+    display: block;
+    width: 75%;
+    max-width: 280px;
+    margin: 0 auto 1.5rem;
+    filter: drop-shadow(0 10px 20px rgba(124, 58, 237, 0.15));
+  }
+
+  .col-mob-item {
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+
+  .col-mob-head {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.2rem;
+    overflow: hidden;
+  }
+
+  .col-mob-left {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .col-mob-arrow {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.85);
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+  }
+
+  .col-mob-body {
+    background: white;
+    padding: 1rem 1.3rem 1.2rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .col-mob-paragraph {
+    font-size: 0.82rem;
+    color: #4b5563;
+    line-height: 1.65;
+    margin: 0;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .col-mob-paragraph:last-of-type {
+    border-bottom: none;
+  }
+
+  .col-mob-btn {
+    position: relative;
+    z-index: 5;
+    margin-top: 0.85rem;
+    border: none;
+    color: white;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 0.5rem 1.3rem;
+    border-radius: 999px;
+    cursor: pointer;
+    text-decoration: none;
+    pointer-events: auto;
+    transition: opacity 0.2s;
+    align-self: flex-start;
+  }
+  .col-mob-btn:visited { color: white; }
+
+  .col-mob-btn:hover { opacity: 0.85; }
+}

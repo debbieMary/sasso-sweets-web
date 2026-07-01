@@ -1,0 +1,211 @@
+.catalogo-hero {
+  position: relative;
+  overflow: hidden;
+  margin-top: 80px;
+  background: linear-gradient(135deg, #ff6b9d, #c06c84);
+  padding: 6rem 0 4rem;
+  text-align: center;
+  color: white;
+}
+
+/* ── Nubes ── */
+.ph-cloud {
+  position: absolute;
+  pointer-events: none;
+  height: auto;
+  z-index: 1;
+}
+.ph-cloud-tl {
+  top: 0; left: -3%; width: 30%; opacity: 0.5;
+  transform: scaleX(-1);
+  animation: ph-drift-l 22s ease-in-out infinite;
+}
+.ph-cloud-tr {
+  top: 0; right: -3%; width: 28%; opacity: 0.45;
+  animation: ph-drift-r 26s ease-in-out infinite;
+}
+.ph-cloud-bl {
+  bottom: -5%; left: -2%; width: 30%; opacity: 0.4;
+  transform: scaleX(-1);
+  animation: ph-drift-l 30s ease-in-out infinite;
+}
+.ph-cloud-br {
+  bottom: -5%; right: -2%; width: 27%; opacity: 0.38;
+  animation: ph-drift-r 24s ease-in-out infinite;
+}
+
+@keyframes ph-drift-l {
+  0%, 100% { transform: translateX(0)    scaleX(-1); }
+  50%       { transform: translateX(16px) scaleX(-1); }
+}
+@keyframes ph-drift-r {
+  0%, 100% { transform: translateX(0); }
+  50%       { transform: translateX(-16px); }
+}
+
+.ph-hero-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.ph-hero-text {
+  text-align: center;
+}
+
+.ph-hero-mascot {
+  width: 180px;
+  height: auto;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.2));
+  animation: ph-float 5s ease-in-out infinite;
+}
+
+@keyframes ph-float {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50%       { transform: translateY(-14px) rotate(2deg); }
+}
+
+.catalogo-page .page-title {
+  font-family: 'Lilita One', cursive;
+  font-size: 3.5rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.catalogo-page .page-subtitle {
+  font-size: 1.5rem;
+  opacity: 0.95;
+}
+
+.catalogo-delivery {
+  background: #5bbfa0;
+}
+
+.catalogo-delivery-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.1rem 1.5rem;
+  text-align: center;
+}
+
+.catalogo-delivery-icon {
+  color: white;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.catalogo-delivery-text {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.catalogo-delivery-btn {
+  background: white;
+  color: #5bbfa0;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.5rem 1.3rem;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.catalogo-delivery-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+  color: #5bbfa0;
+}
+
+.catalogo-content {
+  position: relative;
+  overflow: visible;
+  padding: 4rem 0 6rem;
+  background: linear-gradient(to bottom, #FFFDE7 0%, #D6EFFF 100%);
+}
+
+.catalogo-content .ph-cloud {
+  opacity: 0.85;
+}
+
+.catalogo-content-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.catalogo-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.9rem;
+  margin-bottom: 3rem;
+}
+
+.cat-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
+  border: 2px solid #2d3436;
+  color: #2d3436;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.cat-filter-btn:hover {
+  transform: translateY(-2px);
+}
+
+.cat-filter-btn.is-active {
+  color: white;
+}
+
+.catalogo-empty {
+  text-align: center;
+  color: #636e72;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 991px) {
+  .catalogo-page .page-title {
+    font-size: 2.5rem;
+  }
+
+  .catalogo-page .page-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .ph-hero-inner {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .ph-hero-mascot {
+    width: 130px;
+  }
+}
+
+@media (max-width: 576px) {
+  .catalogo-hero {
+    margin-top: 72px;
+    padding: 4rem 0 2rem;
+  }
+
+  .catalogo-page .page-title {
+    font-size: 2rem;
+  }
+}

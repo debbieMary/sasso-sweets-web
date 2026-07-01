@@ -1,0 +1,218 @@
+.contact-hero {
+  position: relative;
+  overflow: hidden;
+  margin-top: 80px;
+  background: linear-gradient(135deg, #00b894, #55efc4);
+  padding: 6rem 0 4rem;
+  text-align: center;
+  color: white;
+}
+
+/* ── Nubes ── */
+.ph-cloud {
+  position: absolute;
+  pointer-events: none;
+  height: auto;
+  z-index: 1;
+}
+.ph-cloud-tl {
+  top: 0; left: -3%; width: 30%; opacity: 0.5;
+  transform: scaleX(-1);
+  animation: ph-drift-l 22s ease-in-out infinite;
+}
+.ph-cloud-tr {
+  top: 0; right: -3%; width: 28%; opacity: 0.45;
+  animation: ph-drift-r 26s ease-in-out infinite;
+}
+.ph-cloud-bl {
+  bottom: -5%; left: -2%; width: 30%; opacity: 0.4;
+  transform: scaleX(-1);
+  animation: ph-drift-l 30s ease-in-out infinite;
+}
+.ph-cloud-br {
+  bottom: -5%; right: -2%; width: 27%; opacity: 0.38;
+  animation: ph-drift-r 24s ease-in-out infinite;
+}
+
+@keyframes ph-drift-l {
+  0%, 100% { transform: translateX(0)    scaleX(-1); }
+  50%       { transform: translateX(16px) scaleX(-1); }
+}
+@keyframes ph-drift-r {
+  0%, 100% { transform: translateX(0); }
+  50%       { transform: translateX(-16px); }
+}
+
+.ph-hero-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.ph-hero-text {
+  text-align: center;
+}
+
+.ph-hero-mascot {
+  width: 180px;
+  height: auto;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.2));
+  animation: ph-float 5s ease-in-out infinite;
+}
+
+@keyframes ph-float {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50%       { transform: translateY(-14px) rotate(2deg); }
+}
+
+.contact-page .page-title {
+  font-family: 'Lilita One', cursive;
+  font-size: 3.5rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.contact-page .page-subtitle {
+  font-size: 1.5rem;
+  opacity: 0.95;
+}
+
+.contact-delivery {
+  background: #9b7fdb;
+}
+
+.contact-delivery-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.1rem 1.5rem;
+  text-align: center;
+}
+
+.contact-delivery-icon {
+  color: white;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.contact-delivery-text {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.contact-content {
+  position: relative;
+  overflow: visible;
+  padding: 5rem 0;
+  background: linear-gradient(to bottom, #E4D9FA 0%, #D6EFFF 100%);
+}
+
+.contact-content .ph-cloud {
+  opacity: 0.85;
+}
+
+.contact-content-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.contact-form-container {
+  background: white;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2d3436;
+  margin-bottom: 2rem;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #636e72;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  border: 2px solid #dfe6e9;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #5bbfa0;
+  box-shadow: 0 0 0 0.2rem rgba(91, 191, 160, 0.25);
+}
+
+.submit-btn {
+  width: 100%;
+  background: #5bbfa0;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(91, 191, 160, 0.35);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.submit-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 991px) {
+  .contact-page .page-title {
+    font-size: 2.5rem;
+  }
+
+  .contact-page .page-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .ph-hero-inner {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .ph-hero-mascot {
+    width: 130px;
+  }
+
+  .contact-form-container {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-hero {
+    margin-top: 72px;
+    padding: 4rem 0 2rem;
+  }
+
+  .contact-page .page-title {
+    font-size: 2rem;
+  }
+
+  .contact-form-container {
+    padding: 1.5rem;
+  }
+
+  .form-title {
+    font-size: 1.5rem;
+  }
+}

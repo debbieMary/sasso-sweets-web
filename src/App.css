@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cielo fijo detrás de hero + kingdom — no afecta overflow de ningún padre */
+.sky-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(ellipse at 50% 20%, #9A88B6 0%, #ECE7F2 65%);
+  animation: gradient-shift 15s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background: radial-gradient(ellipse at 50% 20%, #9A88B6 0%, #ECE7F2 65%); }
+  50%       { background: radial-gradient(ellipse at 55% 18%, #A895C1 0%, #F0EAF5 65%); }
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: #ff6b9d;
+  color: white;
+}
+
+::-moz-selection {
+  background: #ff6b9d;
+  color: white;
+}
