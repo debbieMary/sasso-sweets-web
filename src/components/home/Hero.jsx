@@ -16,6 +16,7 @@ function Hero() {
       const fade = Math.max(0, 1 - window.scrollY / (window.innerHeight * 1.2))
       setOpacity(fade)
     }
+    onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
