@@ -83,13 +83,39 @@
   padding: 1.75rem 3rem 1.75rem 1.75rem;
 }
 
-.tc-image {
-  display: block;
+.tc-avatar-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
   width: 40%;
   flex-shrink: 0;
   align-self: stretch;
   border-radius: 20px;
-  object-fit: cover;
+  padding: 1.75rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.tc-quote-icon {
+  font-size: 2.5rem;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.tc-avatar-circle {
+  align-self: center;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  border: 3px solid rgba(255, 255, 255, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Lilita One', cursive;
+  font-size: 2.2rem;
+  color: white;
+  margin: auto 0;
 }
 
 .tc-body {
@@ -140,7 +166,7 @@
   align-items: center;
   justify-content: center;
   font-size: 1rem;
-  color: #5bbfa0;
+  color: #4A8BB4;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   flex-shrink: 0;
@@ -166,15 +192,15 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  border: 2px solid #1f2937;
+  border: 2px solid #4A8BB4;
   background: transparent;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .ts-dot.active {
-  background: #1f2937;
-  border-color: #1f2937;
+  background: #4A8BB4;
+  border-color: #4A8BB4;
   transform: scale(1.2);
 }
 
@@ -186,9 +212,15 @@
     gap: 1.25rem;
   }
 
-  .tc-image {
+  .tc-avatar-panel {
     width: 100%;
-    min-height: 180px;
+    min-height: 110px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tc-quote-icon {
+    display: none;
   }
 
   .tc-body {
@@ -197,7 +229,28 @@
     text-align: center;
   }
 
-  .ts-slider { gap: 0.75rem; }
-  .ts-stack { min-height: 420px; }
-  .ts-arrow { width: 36px; height: 36px; font-size: 0.85rem; }
+  .tc-text {
+    font-size: 1.05rem;
+  }
+
+  .ts-slider { gap: 0; padding: 0 0.5rem; }
+  .ts-stack { min-height: 560px; }
+
+  .ts-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    width: 34px;
+    height: 34px;
+    font-size: 0.8rem;
+    opacity: 0.9;
+    transition: box-shadow 0.2s;
+  }
+  .ts-arrow:hover,
+  .ts-arrow:active {
+    transform: translateY(-50%);
+  }
+  .ts-prev { left: 0; }
+  .ts-next { right: 0; }
 }

@@ -76,6 +76,8 @@
 }
 
 @media (max-width: 768px) {
+  .kingdom-section { height: 370vh; }
+
   .k-mid-l, .k-mid-r { display: none; }
 
   .kingdom-content {

@@ -1,18 +1,14 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FaStar, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import { FaStar, FaChevronLeft, FaChevronRight, FaQuoteLeft } from 'react-icons/fa'
 import cloudHero from '../../assets/cloud-hero.png'
-import eucaliptoImg from '../../assets/products/eucaliptoFoto.jpeg'
-import anisImg from '../../assets/products/Anis.jpeg'
-import cocoImg from '../../assets/products/fotoDulcesCoco.jpeg'
-import cocaImg from '../../assets/products/cocaFoto.jpeg'
 import './Testimonials.css'
 
 const testimonials = [
-  { id: 1, name: 'Maria Gonzalez',  text: 'Los mejores dulces que he probado! El sabor de eucalipto me ayudo mucho con la tos.',   rating: 5, image: eucaliptoImg },
-  { id: 2, name: 'Carlos Perez',    text: 'Excelente calidad y sabor autentico. Me recuerdan a mi infancia en Bolivia.',             rating: 5, image: anisImg      },
-  { id: 3, name: 'Ana Rodriguez',   text: 'Los dulces de coco son mis favoritos. Perfectos para compartir en familia.',              rating: 5, image: cocoImg      },
-  { id: 4, name: 'Roberto Sanchez', text: 'Producto boliviano de primera. Los recomiendo al 100%.',                                  rating: 5, image: cocaImg      },
+  { id: 1, name: 'Maria Gonzalez',  text: 'Los mejores dulces que he probado! El sabor de eucalipto me ayudo mucho con la tos.',   rating: 5, color: '#5bbfa0' },
+  { id: 2, name: 'Carlos Perez',    text: 'Excelente calidad y sabor autentico. Me recuerdan a mi infancia en Bolivia.',             rating: 5, color: '#e07898' },
+  { id: 3, name: 'Ana Rodriguez',   text: 'Los dulces de coco son mis favoritos. Perfectos para compartir en familia.',              rating: 5, color: '#9b7fdb' },
+  { id: 4, name: 'Roberto Sanchez', text: 'Producto boliviano de primera. Los recomiendo al 100%.',                                  rating: 5, color: '#5bbfa0' },
 ]
 
 const len = testimonials.length
@@ -55,7 +51,10 @@ function Testimonials() {
               exit={{ opacity: 0, scale: 0.97 }}
               transition={{ duration: 0.4, ease: 'easeOut' }}
             >
-              <img src={t.image} alt="" className="tc-image" />
+              <div className="tc-avatar-panel" style={{ background: t.color }}>
+                <FaQuoteLeft className="tc-quote-icon" />
+                <div className="tc-avatar-circle">{t.name.charAt(0)}</div>
+              </div>
               <div className="tc-body">
                 <div className="tc-stars">
                   {[...Array(t.rating)].map((_, i) => <FaStar key={i} className="tc-star" />)}

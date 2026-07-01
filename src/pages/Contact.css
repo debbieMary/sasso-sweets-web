@@ -132,8 +132,9 @@
 }
 
 .form-title {
+  font-family: 'Lilita One', cursive;
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 400;
   color: #2d3436;
   margin-bottom: 2rem;
 }
@@ -154,6 +155,10 @@
 .form-control:focus {
   border-color: #5bbfa0;
   box-shadow: 0 0 0 0.2rem rgba(91, 191, 160, 0.25);
+}
+
+.form-control::placeholder {
+  color: #adb5bd;
 }
 
 .submit-btn {

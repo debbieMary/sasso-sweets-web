@@ -1,8 +1,14 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FaLeaf, FaChild } from 'react-icons/fa'
-import { GiWrappedSweet } from 'react-icons/gi'
+import { FaLeaf, FaChild, FaShieldAlt, FaTruck, FaHeart } from 'react-icons/fa'
+import { GiWrappedSweet, GiSpiralLollipop, GiJellyBeans, GiCandyCanes, GiChocolateBar, GiDonut } from 'react-icons/gi'
+import { BsStars } from 'react-icons/bs'
 import fabriquita from '../assets/fabriquita.png'
+import sassoMascotPhoto from '../assets/mascot/SassoMascota2.jpg'
+import cocoImg from '../assets/products/fotoDulcesCoco-removebg-preview.png'
+import anisImg from '../assets/products/Anis-removebg-preview.png'
+import mentaImg from '../assets/products/mentaFoto-removebg-preview.png'
+import limonMielImg from '../assets/products/LimonMielPropoleo-removebg-preview.png'
 import './CollectionsOptions.css'
 
 const cols = [
@@ -445,6 +451,177 @@ const priceOptions = [
   },
 ]
 
+/* ══════════ OPCIONES DE HERO (HOME) — el hero original + algo ══════════ */
+
+const heroBadges = [
+  { icon: FaLeaf, text: '100% Natural' },
+  { icon: FaShieldAlt, text: 'Sabor Boliviano' },
+  { icon: FaTruck, text: 'Delivery a domicilio' },
+]
+
+const ohIcons = [
+  { Icon: GiWrappedSweet, top: '8%',  left: '5%',  color: '#FF4FA3', delay: 0 },
+  { Icon: GiSpiralLollipop,     top: '24%', left: '3%',  color: '#FFD23F', delay: 0.4 },
+  { Icon: FaHeart,        top: '42%', left: '6%',  color: '#FF6B6B', delay: 0.8 },
+  { Icon: GiJellyBeans,      top: '58%', left: '3%',  color: '#26C6DA', delay: 1.2 },
+  { Icon: BsStars,        top: '74%', left: '7%',  color: '#FFD23F', delay: 1.6 },
+  { Icon: GiCandyCanes,   top: '88%', left: '13%', color: '#FF6B6B', delay: 2 },
+  { Icon: GiChocolateBar, top: '10%', left: '18%', color: '#9B59B6', delay: 2.4 },
+  { Icon: GiDonut,        top: '90%', left: '30%', color: '#FF8C42', delay: 0.2 },
+
+  { Icon: GiWrappedSweet, top: '8%',  left: '92%', color: '#26C6DA', delay: 0.3 },
+  { Icon: GiSpiralLollipop,     top: '24%', left: '95%', color: '#FF4FA3', delay: 0.7 },
+  { Icon: FaHeart,        top: '42%', left: '92%', color: '#2ECC71', delay: 1.1 },
+  { Icon: GiJellyBeans,      top: '58%', left: '95%', color: '#FF8C42', delay: 1.5 },
+  { Icon: BsStars,        top: '74%', left: '91%', color: '#9B59B6', delay: 1.9 },
+  { Icon: GiCandyCanes,   top: '88%', left: '84%', color: '#FFD23F', delay: 2.3 },
+  { Icon: GiChocolateBar, top: '10%', left: '80%', color: '#FF6B6B', delay: 2.7 },
+  { Icon: GiDonut,        top: '90%', left: '68%', color: '#26C6DA', delay: 0.5 },
+]
+
+/* Base fiel al hero real: montón de dulces flotando en colores vivos, título con brillo, mascota, tagline y botón */
+function HeroBase({ bg, extraTop, extraBottom, taglineNode, ribbon }) {
+  return (
+    <div className="oh-hero" style={{ background: bg }}>
+      {ribbon}
+      {ohIcons.map(({ Icon, top, left, color, delay }, i) => (
+        <Icon key={i} className="oh-decor" style={{ top, left, color, animationDelay: `${delay}s` }} />
+      ))}
+      {extraTop}
+      <div className="oh-content">
+        <h2 className="oh-title">Sasso Sweets</h2>
+        <p className="oh-subtitle">Dulces Artesanales Bolivianos</p>
+        <img src={sassoMascotPhoto} alt="" className="oh-mascot" />
+        {taglineNode || <p className="oh-tagline">En el mundo de Sasso, el sabor reina supremo.</p>}
+        <button className="op-btn" style={{ background: '#e07898', fontSize: '0.9rem', padding: '0.7rem 1.8rem' }}>EXPLORAR DULCES</button>
+        {extraBottom}
+      </div>
+    </div>
+  )
+}
+
+/* ── 1: Original + insignias de confianza ── */
+function Hero1() {
+  return (
+    <HeroBase
+      bg="#FFD23F"
+      extraBottom={
+        <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center', flexWrap: 'wrap', marginTop: '1rem' }}>
+          {heroBadges.map(({ icon: Icon, text }, i) => (
+            <span key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', background: 'white', border: '2px solid #5bbfa0', color: '#5bbfa0', borderRadius: 999, padding: '0.35rem 0.8rem', fontSize: '0.72rem', fontWeight: 700 }}>
+              <Icon /> {text}
+            </span>
+          ))}
+        </div>
+      }
+    />
+  )
+}
+
+/* ── 2: Original + vitrina de dulces flotando junto a la mascota ── */
+function Hero2() {
+  const imgs = [cocoImg, anisImg, mentaImg, limonMielImg]
+  const rot = [-10, 8, -6, 12]
+  const pos = [
+    { top: '18%', left: '20%' }, { top: '65%', left: '16%' },
+    { top: '20%', right: '20%' }, { top: '65%', right: '16%' },
+  ]
+  return (
+    <HeroBase
+      bg="#7EE8E8"
+      extraTop={imgs.map((src, i) => (
+        <img key={i} src={src} alt="" className="oh-product-float" style={{ ...pos[i], transform: `rotate(${rot[i]}deg)`, animationDelay: `${i * 0.6}s` }} />
+      ))}
+    />
+  )
+}
+
+/* ── 3: Original + tagline rotativo ── */
+function Hero3() {
+  const [i, setI] = useState(0)
+  const taglines = ['En el mundo de Sasso, el sabor reina supremo.', 'Tradición boliviana en cada dulce.', 'Hecho a mano, con amor.']
+  useEffect(() => {
+    const t = setInterval(() => setI(v => (v + 1) % taglines.length), 2500)
+    return () => clearInterval(t)
+  }, [])
+  return (
+    <HeroBase
+      bg="#FFB3C6"
+      taglineNode={
+        <AnimatePresence mode="wait">
+          <motion.p key={i} className="oh-tagline"
+            initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.3 }}>
+            {taglines[i]}
+          </motion.p>
+        </AnimatePresence>
+      }
+    />
+  )
+}
+
+/* ── 4: Original + contador de clientes felices ── */
+function Hero4() {
+  const stats = [
+    { value: '500+', label: 'Clientes felices' },
+    { value: '15+', label: 'Sabores' },
+    { value: '100%', label: 'Boliviano' },
+  ]
+  return (
+    <HeroBase
+      bg="#B4F8C8"
+      extraBottom={
+        <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', marginTop: '1.1rem' }}>
+          {stats.map((s, i) => (
+            <div key={i} style={{ textAlign: 'center' }}>
+              <div style={{ fontFamily: "'Lilita One', cursive", fontSize: '1.3rem', color: '#7c3aed' }}>{s.value}</div>
+              <div style={{ fontSize: '0.68rem', color: '#6b7280', fontWeight: 600 }}>{s.label}</div>
+            </div>
+          ))}
+        </div>
+      }
+    />
+  )
+}
+
+/* ── 5: Original + cinta de oferta en la esquina ── */
+function Hero5() {
+  return (
+    <HeroBase
+      bg="#C9A8F5"
+      ribbon={
+        <div style={{ position: 'absolute', top: 18, left: -46, width: 200, transform: 'rotate(-40deg)', background: '#e07898', color: 'white', textAlign: 'center', fontSize: '0.72rem', fontWeight: 800, padding: '0.35rem 0', zIndex: 5, boxShadow: '0 3px 8px rgba(0,0,0,.15)' }}>
+          ENVÍO GRATIS
+        </div>
+      }
+    />
+  )
+}
+
+/* ── 6: Original + destellos animados junto al botón ── */
+function Hero6() {
+  return (
+    <HeroBase
+      bg="#FFC98B"
+      extraBottom={
+        <div style={{ position: 'relative', height: 0 }}>
+          <BsStars className="oh-sparkle" style={{ top: -34, left: -60, color: '#FFD700', animationDelay: '0s' }} />
+          <BsStars className="oh-sparkle" style={{ top: -18, right: -60, color: '#FFD700', animationDelay: '0.6s' }} />
+          <BsStars className="oh-sparkle" style={{ top: -46, right: -10, color: '#FFD700', animationDelay: '1.2s' }} />
+        </div>
+      }
+    />
+  )
+}
+
+const heroOptions = [
+  { num:1, label:'Original + insignias de confianza', Component:Hero1 },
+  { num:2, label:'Original + vitrina de dulces flotando', Component:Hero2 },
+  { num:3, label:'Original + tagline rotativo', Component:Hero3 },
+  { num:4, label:'Original + contador de clientes', Component:Hero4 },
+  { num:5, label:'Original + cinta de oferta', Component:Hero5 },
+  { num:6, label:'Original + destellos junto al botón', Component:Hero6 },
+]
+
 function CollectionsOptions() {
   return (
     <div className="options-page">
@@ -478,6 +655,23 @@ function CollectionsOptions() {
           ))}
         </div>
       </div>
+
+      <div className="opt-section" style={{ marginTop:'4rem' }}>
+        <div className="opt-label-row">
+          <span className="opt-name" style={{ fontSize:'1.4rem', fontWeight:900 }}>Opciones de Hero (Home)</span>
+        </div>
+      </div>
+      {heroOptions.map(({ num, label, Component }) => (
+        <div key={num} className="opt-section">
+          <div className="opt-label-row">
+            <span className="opt-num">{num}</span>
+            <span className="opt-name">{label}</span>
+          </div>
+          <div className="opt-preview">
+            <Component />
+          </div>
+        </div>
+      ))}
     </div>
   )
 }
